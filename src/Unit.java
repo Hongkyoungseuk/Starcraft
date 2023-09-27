@@ -1,10 +1,8 @@
 public class Unit {
     private int attack;
     private int defense;
+    private boolean fly;
 
-
-
-    public int 
 
     public void damage(int n) {
         defense = defense - n;
@@ -17,6 +15,10 @@ public class Unit {
     public int getDefense() {
         return defense;
     }
+    public boolean getFly() {
+        return fly;
+    }
+    
     //set
     public void setAttack(int attack) {
         this.attack = attack;
@@ -24,5 +26,7 @@ public class Unit {
     public void setDefense(int defense) {
         this.defense = defense;
     }
-    
+    public void setFly(boolean fly) {
+        this.fly = fly;
+    }
 }
