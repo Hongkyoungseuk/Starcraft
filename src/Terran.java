@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
-public class Terran extends Unit {
-
-    ArrayList<Unit> group = new ArrayList<>(5);
+public class Terran {
+    private String name = "Terran";
+    private ArrayList<Unit> group = new ArrayList<>();
 
     Terran() {
         for (int i = 0 ; i < 5 ; i++) {
@@ -26,6 +26,16 @@ public class Terran extends Unit {
             }
         }
             
+    }
+    
+    public String getName() {
+        return name;
+    }
+    public ArrayList<Unit> getGroup() {
+        return group;
+    }
+    public Unit getGroup(int i) {
+        return group.remove(i);
     }
 }
 
