@@ -1,4 +1,4 @@
-public class Zerg {
+public class Zerg extends Unit {
     
 
     
