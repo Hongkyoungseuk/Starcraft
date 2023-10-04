@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -20,7 +21,7 @@ public class Main {
                 teamA = new Protos();
                 break;
             } else {
-                System.out.println("다시 입력하세요. (T/Z/P) : ");
+                System.out.print("다시 입력하세요. (T/Z/P) : ");
                 teamAname = sc.next();
             }
         }
@@ -41,7 +42,6 @@ public class Main {
         }
 
         while(true) {
-
             mapString(teamA, teamB);
             myAttackUnit(teamA, teamB);
             if (teamA.getGroup().size() == 0 && teamB.getGroup().size() == 0){
@@ -57,7 +57,6 @@ public class Main {
 
         }
         System.out.println("Game Over");
-        
     }
     
     
@@ -65,6 +64,7 @@ public class Main {
         b.damage(a.attackPoint(b));
         a.damage(b.attackPoint(a));
     }
+
     public static void mapString(Tribe a, Tribe b) {
         System.out.println("적군: " + b.getName());
         for(int i = 0 ; i < b.getGroup().size() ; i++) {
@@ -74,10 +74,10 @@ public class Main {
         for(int i = 0 ; i < a.getGroup().size() ; i++) {
             System.out.println(i + ". " + a.getGroup().get(i).getClass().getName() + " (현재방어력: " + a.getGroup().get(i).getDefense() + ")");
         }
-        
     }
+
     public static void myAttackUnit(Tribe a, Tribe b) {
-        System.out.println("유닛을 선택하세요 (int) : ");
+        System.out.print("유닛을 선택하세요 (int) : ");
         Scanner sc = new Scanner(System.in);
         int myIndex = sc.nextInt();
         while(myIndex < 0 || myIndex >= a.getGroup().size()){
