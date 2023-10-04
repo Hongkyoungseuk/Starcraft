@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -6,10 +5,10 @@ public class Main {
         Tribe teamA;
         Tribe teamB;
         
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         
         System.out.print("팀을 고르시오. (T/Z/P) : ");
-        String teamAname = sc.next();
+        String teamAname = scanner.next();
         while(true) {
             if (teamAname.equals("T")) {
                 teamA = new Terran();
@@ -22,7 +21,7 @@ public class Main {
                 break;
             } else {
                 System.out.print("다시 입력하세요. (T/Z/P) : ");
-                teamAname = sc.next();
+                teamAname = scanner.next();
             }
         }
         
@@ -56,6 +55,7 @@ public class Main {
             } else {}
 
         }
+        scanner.close();
         System.out.println("Game Over");
     }
     
@@ -78,11 +78,11 @@ public class Main {
 
     public static void myAttackUnit(Tribe a, Tribe b) {
         System.out.print("유닛을 선택하세요 (int) : ");
-        Scanner sc = new Scanner(System.in);
-        int myIndex = sc.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        int myIndex = scanner.nextInt();
         while(myIndex < 0 || myIndex >= a.getGroup().size()){
             System.out.println("다시 입력하세요 (int) : ");
-            myIndex = sc.nextInt();
+            myIndex = scanner.nextInt();
         }
         Unit unitA = a.getGroup().get(myIndex);
         int enemyIndex = (int)(b.getGroup().size() * Math.random());
@@ -97,5 +97,4 @@ public class Main {
             b.getGroup().remove(enemyIndex);
         }
     }
-
 }
