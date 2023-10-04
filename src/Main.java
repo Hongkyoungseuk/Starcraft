@@ -2,51 +2,100 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
-        System.out.println("종족을 선택해 주세요 (T/Z/P) : ");
-        Scanner scanner = new Scanner(System.in);
-        String myTeam = scanner.next();
+        Tribe teamA;
+        Tribe teamB;
         
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("팀을 고르시오. (T/Z/P) : ");
+        String teamAname = sc.next();
         while(true) {
-            if (myTeam.equals("T")) {
-                Terran teamA = new Terran();
+            if (teamAname.equals("T")) {
+                teamA = new Terran();
                 break;
-            } else if (myTeam.equals("Z")) {
-                Zerg teamA = new Zerg();
+            } else if (teamAname.equals("Z")) {
+                teamA = new Zerg();
                 break;
-            } else if (myTeam.equals("P")) {
-                Protos teamA = new Protos();
+            } else if (teamAname.equals("P")) {
+                teamA = new Protos();
                 break;
             } else {
-                System.out.println("다시 입력해 주세요. (T/Z/P)");
-                myTeam = scanner.next();
+                System.out.println("다시 입력하세요. (T/Z/P) : ");
+                teamAname = sc.next();
             }
         }
-
-        int teamNumber = (int) (3 * Math.random());
-
-        if (teamNumber == 0){
-            Terran teamB = new Terran();
-        } else if (teamNumber == 1) {
-            Zerg teamB = new Zerg();
-        } else if (teamNumber == 2) {
-            Protos teamB = new Protos();
-        } else {}
         
-        mapString();
+        int teamBnumber = (int)(3 * Math.random());
+        switch(teamBnumber) {
+            case 0 :
+            teamB = new Terran();
+            break;
+            case 1 :
+            teamB = new Zerg();
+            break;
+            case 2 :
+            teamB = new Protos();
+            break;
+            default :   // Why? 이친구는 없으면 teamB가 생성이 안된걸로 인식이 되는거지??
+            teamB = new Terran();
+        }
 
+        while(true) {
 
+            mapString(teamA, teamB);
+            myAttackUnit(teamA, teamB);
+            if (teamA.getGroup().size() == 0 && teamB.getGroup().size() == 0){
+                System.out.println("무승부 하였습니다.");
+                break;
+            } else if (teamA.getGroup().size() == 0) {
+                System.out.println("패배 하였습니다.");
+                break;
+            } else if (teamB.getGroup().size() == 0) {
+                System.out.println("승리 했습니다.");
+                break;
+            } else {}
 
-    }
-
-    public static void mapString() {
-        System.out.println("적군 : " + teamB.getClass());
-        for (int i = 0 ; i < teamB.getGroup())
+        }
+        System.out.println("Game Over");
         
     }
-    // TODO 대결 매서드(유닛list,유닛list)
-    // 유닛 랜덤으로 매칭
-    // 두 유닛 싸우기 : 새로 매서드 만들어도 좋을듯
-    // 유닛 싸운후 삭제
+    
+    
+    public static void vs(Unit a, Unit b) {
+        b.damage(a.attackPoint(b));
+        a.damage(b.attackPoint(a));
+    }
+    public static void mapString(Tribe a, Tribe b) {
+        System.out.println("적군: " + b.getName());
+        for(int i = 0 ; i < b.getGroup().size() ; i++) {
+            System.out.println(i + ". " + b.getGroup().get(i).getClass().getName() + " (현재방어력: " + b.getGroup().get(i).getDefense() + ")");
+        }
+        System.out.println("아군: " + a.getName());
+        for(int i = 0 ; i < a.getGroup().size() ; i++) {
+            System.out.println(i + ". " + a.getGroup().get(i).getClass().getName() + " (현재방어력: " + a.getGroup().get(i).getDefense() + ")");
+        }
+        
+    }
+    public static void myAttackUnit(Tribe a, Tribe b) {
+        System.out.println("유닛을 선택하세요 (int) : ");
+        Scanner sc = new Scanner(System.in);
+        int myIndex = sc.nextInt();
+        while(myIndex < 0 || myIndex >= a.getGroup().size()){
+            System.out.println("다시 입력하세요 (int) : ");
+            myIndex = sc.nextInt();
+        }
+        Unit unitA = a.getGroup().get(myIndex);
+        int enemyIndex = (int)(b.getGroup().size() * Math.random());
+        Unit unitB = b.getGroup().get((int)(enemyIndex));
+        
+        System.out.println(myIndex + ". " + unitA.getClass().getName() + " VS " + enemyIndex + ". " + unitB.getClass().getName());
+        vs(unitA, unitB);
+        if (unitA.getDefense() == 0) {
+            a.getGroup().remove(myIndex);
+        }
+        if (unitB.getDefense() == 0) {
+            b.getGroup().remove(enemyIndex);
+        }
+    }
 
 }
