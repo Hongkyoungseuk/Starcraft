@@ -1,12 +1,10 @@
-import java.util.ArrayList;
 
-public class Terran {
-    private String name = "Terran";
-    private ArrayList<Unit> group = new ArrayList<>();
-
+public class Terran extends Tribe {
     Terran() {
+        setName("Terran");
+        
         for (int i = 0 ; i < 5 ; i++) {
-
+            
             int a = (int)(5 * Math.random());
             while (a >= 5) {
                 a = (int)(5 * Math.random());
@@ -14,28 +12,24 @@ public class Terran {
             
             switch(a) {
                 case 0 :
-                group.add(new Marine());
+                    addUnit(new Marine());
+                    break;
                 case 1 :
-                group.add(new Tank());
+                    addUnit(new Tank());
+                    break;
                 case 2 :
-                group.add(new Goliath());
+                    addUnit(new Goliath());
+                    break;
                 case 3 :
-                group.add(new Wraith());
+                    addUnit(new Wraith());
+                    break;
                 case 4 :
-                group.add(new Valkyrie());
+                    addUnit(new Valkyrie());
+                    break;
             }
         }
-            
     }
-    
-    public String getName() {
-        return name;
-    }
-    public ArrayList<Unit> getGroup() {
-        return group;
-    }
-    public Unit getGroup(int i) {
-        return group.remove(i);
-    }
+        
+        
 }
 

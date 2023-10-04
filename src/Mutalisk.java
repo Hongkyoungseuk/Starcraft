@@ -1,4 +1,4 @@
-public class Mutalisk extends Zerg {
+public class Mutalisk extends Unit {
     
     Mutalisk() {
         setAttack(2);

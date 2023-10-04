@@ -1,4 +1,4 @@
-public class Tank extends Unit{
+public class Tank extends Unit {
     
     Tank() {
         setAttack(7);

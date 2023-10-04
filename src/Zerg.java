@@ -1,12 +1,10 @@
-import java.util.ArrayList;
 
-public class Zerg extends Unit {
-
-    ArrayList<Unit> group = new ArrayList<>(8);
-
+public class Zerg extends Tribe {
     Zerg() {
+        setName(getClass().getName());
+        
         for (int i = 0 ; i < 8 ; i++) {
-
+            
             int a = (int)(5 * Math.random());
             while (a >= 5) {
                 a = (int)(5 * Math.random());
@@ -14,18 +12,24 @@ public class Zerg extends Unit {
             
             switch(a) {
                 case 0 :
-                group.add(new Zergling());
+                addUnit(new Zealot());
+                break;
                 case 1 :
-                group.add(new Hydralisk());
+                addUnit(new Dragoon());
+                break;
                 case 2 :
-                group.add(new Ultralisk());
+                addUnit(new HighTempler());
+                break;
                 case 3 :
-                group.add(new Mutalisk());
+                addUnit(new Scout());
+                break;
                 case 4 :
-                group.add(new Guardian());
+                addUnit(new Corsair());
+                break;
             }
         }
-            
     }
+        
+        
 }
 

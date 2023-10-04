@@ -1,10 +1,8 @@
-import java.util.ArrayList;
 
-public class Protos extends Unit {
-
-    ArrayList<Unit> group = new ArrayList<>(4);
-
+public class Protos extends Tribe {
     Protos() {
+        setName(getClass().getName());
+
         for (int i = 0 ; i < 4 ; i++) {
 
             int a = (int)(5 * Math.random());
@@ -14,18 +12,24 @@ public class Protos extends Unit {
             
             switch(a) {
                 case 0 :
-                group.add(new Zealot());
+                addUnit(new Zergling());
+                break;
                 case 1 :
-                group.add(new Dragoon());
+                addUnit(new Hydralisk());
+                break;
                 case 2 :
-                group.add(new HighTempler());
+                addUnit(new Ultralisk());
+                break;
                 case 3 :
-                group.add(new Scout());
+                addUnit(new Mutalisk());
+                break;
                 case 4 :
-                group.add(new Corsair());
+                addUnit(new Guardian());
+                break;
             }
         }
             
     }
+
 }
 

@@ -1,4 +1,4 @@
-public class Unit {
+public abstract class Unit {
     private int attack;
     private int defense;
     private boolean fly;

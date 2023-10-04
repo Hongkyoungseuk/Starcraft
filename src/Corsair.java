@@ -1,4 +1,4 @@
-public class Corsair extends Protos{
+public class Corsair extends Unit {
     
     Corsair() {
         setAttack(4);

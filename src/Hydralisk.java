@@ -1,4 +1,4 @@
-public class Hydralisk extends Zerg{
+public class Hydralisk extends Unit {
     
     Hydralisk() {
         setAttack(3);

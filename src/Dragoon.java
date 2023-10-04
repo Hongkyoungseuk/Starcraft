@@ -1,4 +1,4 @@
-public class Dragoon extends Protos {
+public class Dragoon extends Unit {
     
     Dragoon() {
         setAttack(3);

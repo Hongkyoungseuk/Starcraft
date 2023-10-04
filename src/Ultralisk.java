@@ -1,4 +1,4 @@
-public class Ultralisk extends Zerg{
+public class Ultralisk extends Unit {
     
     Ultralisk() {
         setAttack(5);

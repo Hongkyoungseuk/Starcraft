@@ -1,4 +1,4 @@
-public class Wraith extends Terran {
+public class Wraith extends Unit {
     
     Wraith() {
         setAttack(3);

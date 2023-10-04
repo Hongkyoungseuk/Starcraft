@@ -1,4 +1,4 @@
-public class Scout extends Protos {
+public class Scout extends Unit {
     
     Scout() {
         setAttack(5);

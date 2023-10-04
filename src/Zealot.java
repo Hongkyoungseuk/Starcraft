@@ -1,4 +1,4 @@
-public class Zealot extends Protos {
+public class Zealot extends Unit {
     
     Zealot() {
         setAttack(5);

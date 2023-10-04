@@ -1,4 +1,4 @@
-public class HighTempler extends Protos {
+public class HighTempler extends Unit {
     
     HighTempler() {
         setAttack(10);

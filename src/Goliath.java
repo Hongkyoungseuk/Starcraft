@@ -1,4 +1,4 @@
-public class Goliath extends Terran {
+public class Goliath extends Unit {
     
     Goliath() {
         setAttack(5);

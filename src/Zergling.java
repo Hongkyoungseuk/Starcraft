@@ -1,4 +1,4 @@
-public class Zergling extends Zerg{
+public class Zergling extends Unit {
     
     Zergling() {
         setAttack(2);

@@ -1,4 +1,4 @@
-public class Marine extends Terran {
+public class Marine extends Unit {
     
     Marine()  {    
         setAttack(3);

@@ -1,4 +1,4 @@
-public class Guardian extends Zerg {
+public class Guardian extends Unit {
     
     Guardian() {
         setAttack(3);

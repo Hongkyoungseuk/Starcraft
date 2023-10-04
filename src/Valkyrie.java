@@ -1,4 +1,4 @@
-public class Valkyrie extends Terran {
+public class Valkyrie extends Unit {
     
     Valkyrie() {
         setAttack(4);
