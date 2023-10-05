@@ -25,8 +25,6 @@ public abstract class Unit {
         }
     }
 
-    // 여기다 method로 양쪽 둘다 대미지를 계산할수 있지 않을까???
-
     //get
     public int getAttack() {
         return attack;
