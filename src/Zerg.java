@@ -1,7 +1,6 @@
 
 public class Zerg extends Tribe {
     Zerg() {
-        setName(getClass().getName());
         
         for (int i = 0 ; i < 8 ; i++) {
             

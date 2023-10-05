@@ -1,7 +1,6 @@
 
 public class Protos extends Tribe {
     Protos() {
-        setName(getClass().getName());
 
         for (int i = 0 ; i < 4 ; i++) {
 

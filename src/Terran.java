@@ -1,7 +1,6 @@
 
 public class Terran extends Tribe {
     Terran() {
-        setName("Terran");
         
         for (int i = 0 ; i < 5 ; i++) {
             
