@@ -36,7 +36,7 @@ public class Main {
             case 2 :
             teamB = new Protos();
             break;
-            default :   // Why? 이친구는 없으면 teamB가 생성이 안된걸로 인식이 되는거지??
+            default :   // Why? 이친구는 없으면 teamB가 생성이 안된걸로 인식이 되는거지??   (case에서 확인되어지지 않은 값이 들어 왓을때 default쓰는게 안전한 코드이다.)
             teamB = new Terran();
         }
 
