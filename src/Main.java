@@ -66,11 +66,11 @@ public class Main {
     }
 
     public static void mapString(Tribe a, Tribe b) {
-        System.out.println("적군: " + b.getName());
+        System.out.println("적군: " + b.getClass().getName());
         for(int i = 0 ; i < b.getGroup().size() ; i++) {
             System.out.println(i + ". " + b.getGroup().get(i).getClass().getName() + " (현재방어력: " + b.getGroup().get(i).getDefense() + ")");
         }
-        System.out.println("아군: " + a.getName());
+        System.out.println("아군: " + a.getClass().getName());
         for(int i = 0 ; i < a.getGroup().size() ; i++) {
             System.out.println(i + ". " + a.getGroup().get(i).getClass().getName() + " (현재방어력: " + a.getGroup().get(i).getDefense() + ")");
         }
